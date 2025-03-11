@@ -1,0 +1,319 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    background: linear-gradient(125deg, 
+        #FF6B6B 0%, 
+        #4ECDC4 50%, 
+        #45B7D1 100%);
+    background-size: 200% 200%;
+    animation: gradientBG 15s ease infinite;
+    padding: 40px 20px;
+    color: #333;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #fff;
+    font-size: 4em;
+    font-weight: 700;
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.2);
+    letter-spacing: 3px;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #fff, transparent);
+}
+
+h2 {
+    color: #2A363B;
+    margin-bottom: 25px;
+    font-size: 2.2em;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, #FF6B6B, transparent);
+}
+
+.form-container {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 40px;
+    border-radius: 30px;
+    margin-bottom: 40px;
+    box-shadow: 
+        0 20px 40px rgba(0,0,0,0.1),
+        0 0 0 1px rgba(255,255,255,0.1);
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.3s ease;
+}
+
+.form-container:hover {
+    transform: translateY(-5px) rotateX(2deg);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+input, textarea {
+    padding: 18px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 15px;
+    font-size: 1.1em;
+    transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
+    background: rgba(255,255,255,0.9);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #FF6B6B;
+    box-shadow: 
+        0 0 0 4px rgba(255,107,107,0.1),
+        inset 0 2px 4px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+}
+
+textarea {
+    min-height: 180px;
+    resize: vertical;
+}
+
+button {
+    padding: 18px 35px;
+    background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(255,107,107,0.3);
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(255,107,107,0.4);
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+.capsules-container {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 
+        0 20px 40px rgba(0,0,0,0.1),
+        0 0 0 1px rgba(255,255,255,0.1);
+    backdrop-filter: blur(20px);
+}
+
+.capsule-card {
+    background: white;
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 20px;
+    box-shadow: 
+        0 10px 20px rgba(0,0,0,0.05),
+        0 0 0 1px rgba(255,255,255,0.1);
+    transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
+    border-left: 6px solid #FF6B6B;
+    position: relative;
+    overflow: hidden;
+}
+
+.capsule-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1));
+    pointer-events: none;
+}
+
+.capsule-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(0,0,0,0.1),
+        0 0 0 1px rgba(255,255,255,0.2);
+}
+
+.capsule-card h3 {
+    color: #2A363B;
+    margin-bottom: 15px;
+    font-size: 1.6em;
+    font-weight: 600;
+}
+
+.capsule-card p {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+.locked {
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+    border-left: 6px solid #4ECDC4;
+}
+
+.capsule-card button.delete-btn {
+    background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+    padding: 12px 25px;
+    font-size: 0.9em;
+    border-radius: 12px;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 0.9em;
+    font-weight: 500;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.status-locked {
+    background: linear-gradient(135deg, #4ECDC4, #45B7D1);
+    color: white;
+}
+
+.status-unlocked {
+    background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    body { padding: 20px 15px; }
+    h1 { font-size: 2.5em; }
+    .form-container, .capsules-container { padding: 25px; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.capsule-card {
+    animation: fadeInUp 0.8s cubic-bezier(0.215, 0.610, 0.355, 1) forwards;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+    border-radius: 10px;
+    border: 3px solid rgba(255,255,255,0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #FF8E53, #FF6B6B);
+}
+
+.delete-btn {
+    background: linear-gradient(135deg, #ff6b6b, #ff8787);
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+    background: linear-gradient(135deg, #ff8787, #ff6b6b);
+    transform: translateY(-2px);
+}
+
+.delete-btn i {
+    font-size: 0.9em;
+}
