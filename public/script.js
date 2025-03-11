@@ -159,3 +159,4 @@ window.deleteCapsule = async function(id) {
         }
     }
 }
+window.deleteCapsule = deleteCapsule;
